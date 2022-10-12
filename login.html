@@ -1,0 +1,52 @@
+<style>
+	body {
+		background: #000000 url("https://images.pexels.com/photos/583846/pexels-photo-583846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg") no-repeat left top;
+		background-size: cover;
+	}
+
+	div.border {
+		border-style: solid;
+		border-color: black;
+		margin-top: 10%;
+		margin-left: 40%;
+		margin-right: 40%;
+		background-color: aliceblue;
+
+	}
+
+	div.mar {
+		margin-left: 30%;
+		margin-top: 10%;
+		margin-right: -25%;
+		margin-bottom: 10%;
+	}
+</style>
+<script>
+	if('{{password}}'){alert('password wrong')}
+	if('{{user}}'){alert('username wrong')}
+
+</script>
+
+<title>Login Page</title>
+<div class="border">
+	<div class="mar">
+		<h1 style="margin: 5%;">LOGIN </h1>
+		<form action="/login" method="post">
+			<p>Roll number</p>
+			{{ form.rollno }}
+			<p>Password</p>
+			{{ form.password }}
+			{{ form.hidden_tag() }}
+			<br>
+			<br>
+
+			{{ form.hidden_tag() }}
+			<input type="submit" value="Login">
+			<br />or
+			<br />
+			<button onclick="window.location.href = '/register'">
+				Register
+			</button>
+		</form>
+	</div>
+</div>

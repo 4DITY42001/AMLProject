@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <meta charset="utf-8">
+    <title> Facial Recognition </title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Registration</title>
+</head>
+
+<body>
+    <form action="/cpt" method="post" name="captureFrm" id="captureform" class="form-horizontal">
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-lg-8  offset-lg-2"> -->
+                <div class="col-lg-6">
+                    <h3 class="mt-5">Registration</h3>
+                    <img src="{{url_for('video_feed') }}" width="80%">
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="btn-toolbar" style="padding-left: 5%;">
+                    <button type="submit" name="capture" id="capture" class="btn btn-primary btn-sm">capture</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        <button class="btn btn-primary btn-sm" onclick="window.location.href = '/train'">train</button>
+    </div>
+
+</body>
+
+</html>

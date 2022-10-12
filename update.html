@@ -1,0 +1,49 @@
+<style>
+    body {
+      background: #000000 url("https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat left top;
+      background-size: cover;
+    }
+  
+    div.border {
+      border-style: solid;
+      border-color: black;
+      margin-top: 10%;
+      margin-left: 40%;
+      margin-right: 40%;
+      background-color: aliceblue;
+  
+    }
+  
+    div.mar {
+      margin-left: 30%;
+      margin-top: 10%;
+      margin-right: -25%;
+      margin-bottom: 10%;
+    }
+  </style>
+  <div class="border">
+    <div class="mar">
+      <h1>Update</h1>
+      <form action="/update" method="post">
+        <p>Name :</p>
+        {{ form.name }}
+        <p>Email :</p>
+        {{ form.email }}
+        <p>Password :</p>
+        {{ form.password }}
+        {{ form.hidden_tag() }}
+        <P>Category :</P>
+        <p>
+          {% for subfield in form.cate %}
+          <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+          </tr>
+          {% endfor %}
+        </p>
+        <br>
+        <br>
+        <input type="submit" value="Submit" onclick="">
+      </form>
+    </div>
+  </div>

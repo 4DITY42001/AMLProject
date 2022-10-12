@@ -1,0 +1,48 @@
+
+<style>
+  body {
+    background: #000000 url("https://cdn.hipwallpaper.com/i/65/54/5njpOF.jpg") no-repeat left top;
+    background-size: cover;
+  }
+
+  div.border {
+    border-style: solid;
+    border-color: black;
+    margin-top: 15%;
+    margin-left: 40%;
+    margin-right: 40%;
+    background-color: aliceblue;
+
+  }
+
+  div.mar {
+    margin-left: 30%;
+    margin-top: 10%;
+    margin-right: -25%;
+    margin-bottom: 10%;
+  }
+  p{
+    size: 12cm;
+  }
+</style>
+<div class="border">
+  <div class="mar">
+    <h1>Dashboard</h1>
+    <p>Hey {{ name }}</p>
+    <!-- <br>
+<a href="update.html">Click here to update the details</a>
+<br>
+<a href="webcam.html"> Click herer to register face template</a>
+<br> -->
+    <button onclick="window.location.href = '/update'">
+      Update details
+    </button>
+    <br>
+    <button onclick="window.location.href = '/cpt'">
+      Update facial template
+    </button>
+    <br>
+
+    <a href='logout'>Logout</a>
+  </div>
+</div>

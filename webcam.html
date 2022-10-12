@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebCam</title>
+    <link rel="shortcut icon" href="#">
+</head>
+
+<body>
+    <form action="/webcam">
+    <div class="video-wrap">
+        <video id="video" autoplay="True"></video>
+    </div>
+    <div class="controller">
+        <button id="snap">Capture</button>
+    </div>
+
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <script>
+        'use strict';
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const snap = document.getElementById('snap');
+        const errorMsgElement = document.getElementById('spanErrorMsg');
+        const constraints = {
+            audio: true,
+            video: {
+                width: 1280, height: 720
+            }
+        };
+        async function init() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                handleSuccess(stream)
+            }
+            catch (e) {
+                errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
+
+            }
+        }
+
+        function handleSuccess(stream) {
+            window.stream = stream;
+            video.srcObject = stream;
+        }
+
+        init();
+
+        var context = canvas.getContext('2d');
+        snap.addEventListener("click", function () {
+            console.log(typeof(video))
+            context.drawImage(video, 0, 0, 640, 480);
+            $.post("http://localhost:5000/receiveframe",
+            {
+                label : "video",
+                content : canvas.toDataURL("image/png")
+            },
+            function(data,status){
+                result.value = status+":"+data;
+            });
+           
+        });
+        navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream){
+            video.srcObject= mediaStream;
+        });
+
+
+
+    </script>
+</form>
+</body>
+
+</html>
